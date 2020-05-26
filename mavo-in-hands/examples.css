@@ -1,0 +1,194 @@
+@font-face {
+	font-family: 'Lobster';
+	font-style: normal;
+	font-weight: 400;
+	src: url('fonts/Lobster-Regular.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Oswald';
+	font-style: light;
+	font-weight: 300;
+	src: url('fonts/Oswald-Light.woff2') format('woff2');
+}
+
+html {
+	margin: 0;
+	padding: 0;
+	/* font-size: 62.5%; */
+	font-size: 75%;
+}
+
+body {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	min-width: 32rem;
+	font-size: 2rem;
+	background-color: #e6e6e6;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+:root {
+	--main-font: "Oswald", sans-serif;
+	--label-font: "Lobster", cursive;
+	--bg-color: hsl(14, 20%, 25%);
+	--flashcard-bg-color: hsl(56, 100%, 97%);
+	--text-color: hsl(42, 71%, 44%);
+	--label-color: hsl(42, 71%, 33%);
+}
+
+header {
+	margin: 0;
+	padding: 0.1rem 1.5rem;
+	font-family: var(--main-font);
+	color: white;
+	background-color: var(--bg-color);
+}
+
+header h1 {
+	font-weight: 100;
+}
+
+main {
+	position: relative;
+	margin: 5rem auto 2rem;
+	max-width: 65rem;
+	display: grid;
+	grid-gap: 2rem;
+	justify-items: center;
+	align-items: start;
+}
+
+main span {
+	grid-column: 1 / -1;
+	display: flex;
+	align-items: center;
+	margin: 0 auto;
+	width: 80%;
+	font-family: var(--main-font);
+	font-size: 2.8rem;
+	color: purple;
+}
+
+main span::before,
+main span::after {
+	content: "";
+	flex: 1;
+	margin: 0 0.5em;
+	height: 0.15em;
+	border: solid purple;
+	border-width: 0.05em 0;
+}
+
+main article {
+	padding: 3.5rem;
+	width: 32rem;
+	border-radius: 1.2rem;
+	color: var(--text-color);
+	background-color: var(--flashcard-bg-color);
+	background-image: radial-gradient(at 50% 0, var(--text-color), transparent 60%);
+	background-size: 100% 0.25rem;
+	background-repeat: no-repeat;
+	box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.3), 0 0 5rem #a15912 inset;
+}
+
+main article p {
+	position: relative;
+	padding-top: 0.2rem;
+	min-width: 100%;
+	font-family: var(--main-font);
+	font-size: 2.5rem;
+	font-weight: 400;
+	line-height: 2.5rem;
+	cursor: default;
+}
+
+main article p::before {
+	position: absolute;
+	top: -2.3rem;
+	font-family: var(--label-font);
+	font-size: 1.6rem;
+	color: var(--label-color);
+	opacity: 0.7;
+}
+
+main article [property="source"] {
+	margin-bottom: 3.2rem;
+	font-size: 3.5rem;
+	line-height: 3.5rem;
+}
+
+main article [property="source"]::before {
+	content: "Слово или фраза";
+	top: -2.7rem;
+}
+
+main article [property="translation"]::before {
+	content: "Перевод";
+	top: -2.7rem;
+}
+
+main article [property="translation"] {
+	margin-top: 3.5rem;
+}
+
+main article>section {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	font-family: var(--label-font);
+}
+
+main article>section h2 {
+	width: 100%;
+	margin: 1.3rem 0;
+	margin-top: 0;
+	font-size: 2rem;
+	color: var(--label-color);
+}
+
+main article>section button {
+	padding: 0.8rem;
+	width: 12rem;
+	border: none;
+	border-radius: 0.7rem;
+	font-size: 2rem;
+	color: white;
+	cursor: pointer;
+}
+
+main article>section button:first-of-type {
+	background-color: #d01141;
+}
+
+main article>section button:first-of-type:hover {
+	background-color: #ec1349;
+}
+
+main article>section button:last-of-type {
+	background-color: #317773;
+}
+
+main article>section button:last-of-type:hover {
+	background-color: #3b918b;
+}
+
+.mv-bar.mv-ui {
+	position: absolute;
+	top: -4.5rem;
+	width: 100%;
+	font-size: 1.5rem;
+}
+
+button.mv-add {
+	padding: .2em .5em;
+	font-size: 130%;
+	border-radius: .2em;
+	cursor: pointer;
+}

@@ -1,0 +1,149 @@
+/* http://prismjs.com/download.html?themes=prism-funky&languages=markup+css+clike+javascript&plugins=unescaped-markup+normalize-whitespace */
+/**
+ * prism.js Funky theme
+ * Based on “Polyfilling the gaps” talk slides http://lea.verou.me/polyfilling-the-gaps/
+ * @author Lea Verou
+ */
+
+.token.comment,
+.token.doctype,
+.token.cdata {
+	color: hsla(220, 10%, 90%, .5);
+}
+
+.token.prolog {
+	font-weight: bold;
+	color: inherit;
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol {
+	color: var(--accent4-light); /* yellowgreen */
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin {
+	color: var(--accent1-light); /* deep pink */
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css > .token.string,
+.token.inserted,
+.token.function {
+	color: var(--accent3-light);
+}
+
+.light.slide .token.property,
+	.light.slide .token.tag,
+	.light.slide .token.boolean,
+	.light.slide .token.number,
+	.light.slide .token.constant,
+	.light.slide .token.symbol,
+	.white.slide .token.property,
+	.white.slide .token.tag,
+	.white.slide .token.boolean,
+	.white.slide .token.number,
+	.white.slide .token.constant,
+	.white.slide .token.symbol,
+	.notes .token.property,
+	.notes .token.tag,
+	.notes .token.boolean,
+	.notes .token.number,
+	.notes .token.constant,
+	.notes .token.symbol {
+		color: var(--accent4); /* yellowgreen */
+	}
+
+.light.slide .token.selector,
+	.light.slide .token.attr-name,
+	.light.slide .token.string,
+	.light.slide .token.char,
+	.light.slide .token.builtin,
+	.white.slide .token.selector,
+	.white.slide .token.attr-name,
+	.white.slide .token.string,
+	.white.slide .token.char,
+	.white.slide .token.builtin,
+	.notes .token.selector,
+	.notes .token.attr-name,
+	.notes .token.string,
+	.notes .token.char,
+	.notes .token.builtin {
+		color: var(--accent1); /* deep pink */
+	}
+
+.light.slide .token.operator,
+	.light.slide .token.entity,
+	.light.slide .token.url,
+	.light.slide .language-css > .token.string,
+	.light.slide .token.inserted,
+	.white.slide .token.operator,
+	.white.slide .token.entity,
+	.white.slide .token.url,
+	.white.slide .language-css > .token.string,
+	.white.slide .token.inserted,
+	.notes .token.operator,
+	.notes .token.entity,
+	.notes .token.url,
+	.notes .language-css > .token.string,
+	.notes .token.inserted {
+		color: var(--accent3);
+	}
+
+
+
+.token.attr-value,
+.token.keyword,
+.token.variable {
+	color: gold;
+}
+
+.token.atrule,
+.token.regex,
+.token.important {
+	color: orange;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+
+.token.deleted {
+	color: red;
+}
+
+/* Fallback, in case JS does not run, to ensure the code is at least visible */
+.lang-markup script[type='text/plain'],
+.language-markup script[type='text/plain'],
+script[type='text/plain'].lang-markup,
+script[type='text/plain'].language-markup {
+	display: block;
+	font: 100% Consolas, Monaco, monospace;
+	white-space: pre;
+	overflow: auto;
+}

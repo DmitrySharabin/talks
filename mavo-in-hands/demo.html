@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+var mavoHost = location.hostname == "localhost"? "../mavo" : "https://get.mavo.io";
+document.write(`<link rel="stylesheet" href="${mavoHost}/mavo.css" /><script src="${mavoHost}/mavo.min.js"></` + "script>");
+
+if (window.parent) {
+	document.addEventListener("DOMContentLoaded", function() {
+		var iframe = parent.document.getElementsByName(name)[0];
+		parent.Bliss.fire(iframe, "DOMFrameContentLoaded")
+	});
+}
+
+</script>
+<link rel="stylesheet" href="examples.css">
+<meta name="viewport" content="width=device-width">
+
+</head>
+<body>
+	<section id="dynamic">
+		<!-- <header>
+			<h1>Карточки</h1>
+		</header>
+		<main mv-app="flashcards"
+				mv-storage="local"
+				mv-autosave="3"
+				mv-bar="with import export">
+			<meta property="flashcardCount" content="[count(flashcard)]">
+			<span>[flashcardCount] шт.</span>
+			<article property="flashcard" mv-multiple>
+
+				<p property="source">Слово или фраза</p>
+				<p property="translation">Перевод</p>
+
+				<section mv-if="source and translation">
+					<h2>Оцените себя</h2>
+					<button mv-action="move(flashcard, 0)">
+						👎🏻 Плохо
+					</button>
+					<button mv-action="move(flashcard, flashcardCount)">
+						👍🏻 Хорошо
+					</button>
+				</section>
+
+			</article>
+		</main> -->
+	</section>
+	<div id="data" hidden>
+		{
+			"flashcard": [
+				{
+					"source": "Noël",
+					"translation": "Christmas"
+				},
+				{
+					"source": "Musée",
+					"translation": "Museum"
+				},
+				{
+					"source": "Monument",
+					"translation": "Monument"
+				},
+				{
+					"source": "Théâtre",
+					"translation": "Theatre"
+				},
+				{
+					"source": "École",
+					"translation": "School"
+				}
+			]
+		}
+	</div>
+</body>
+</html>

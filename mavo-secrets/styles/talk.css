@@ -1,0 +1,207 @@
+@import url(base.css);
+@import url(components.css);
+@import url(prism.css);
+
+@font-face {
+	font-family: "Reenie Beanie";
+	font-style: normal;
+	font-weight: 400;
+	src: local("Reenie Beanie"), local("ReenieBeanie"),
+		url(https://fonts.gstatic.com/s/reeniebeanie/v8/z7NSdR76eDkaJKZJFkkjuvWxXPq1q6Gjb_0.woff2)
+			format("woff2");
+}
+
+@font-face {
+	font-family: "BLOKK";
+	src: url("../../fonts/BLOKKNeue-Regular.woff2") format("woff2");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Djiovanni";
+	font-style: normal;
+	font-weight: 400;
+	src: url("../../fonts/Djiovanni.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Nautilusscript";
+	font-style: normal;
+	font-weight: normal;
+	src: url("../../fonts/NautilusScript.woff2") format("woff2");
+}
+
+:root {
+	--rainbow-scroll: scroll 20s linear 2;
+	--accent1: var(--c1);
+	--accent2: var(--c2);
+	--accent3: var(--c3);
+	--accent4: var(--c4);
+	--accent1-light: var(--c1-light);
+	--accent2-light: var(--c2-light);
+	--accent3-light: var(--c3-light);
+	--accent4-light: var(--c4-light);
+
+	--font-mono: "Dank Mono", "Operator Mono", Consolas, Monaco, "Andale Mono",
+		monospace;
+	--font-body: "Helvetica Neue", Segoe UI, sans-serif;
+	--font-heading: var(--font-body);
+	--font-handwritten: Nautilusscript, Djiovanni, "Reenie Beanie", Marker Felt, cursive;
+
+	/* Bright colors */
+	--color-magenta: #f06;
+	--color-orange: orange;
+	--color-green: yellowgreen;
+	--color-aqua: hsl(191, 100%, 40%);
+	--color-yellow: gold;
+}
+
+/* Подсветка фрагментов кода */
+code mark {
+	--color: hsla(190, 20%, 50%, 0.5);
+	background: var(--color);
+	box-shadow: 0 -0.05em 0 0.1em var(--color);
+	color: inherit;
+	border-radius: 1px;
+	text-shadow: 0.01em 0.05em 0.2em rgba(0, 0, 0, 0.6);
+	transition: 0.6s;
+}
+
+[id^="todo-code"]:not([data-step]) mark {
+	background: transparent;
+	box-shadow: none;
+	text-shadow: none;
+}
+
+/* Заголовки разделов */
+section > header.slide:not(#intro) {
+	background: radial-gradient(transparent, rgba(0,0,0,.7)) hsl(200, 15%, 20%);;
+}
+
+section > header.slide:not(#intro) h1 {
+	max-width: 7em;
+	margin: 0;
+	padding-bottom: .2em;
+	text-align: left;
+	font-size: calc(280% + 2vw + 2vh);
+	line-height: .83;
+	letter-spacing: -.04em;
+	font-weight: bold;
+	filter: drop-shadow(.01em .01em .03em black);
+	background: var(--rainbow);
+	animation: var(--rainbow-scroll);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+}
+
+section > header.slide:not(#intro) h1 .pretitle {
+	display: block;
+	padding: .3em .3em;
+	margin-bottom: .3em;
+	width: fit-content;
+	background: var(--rainbow);
+	animation: var(--rainbow-scroll);
+	font-size: 30%;
+	color: black;
+	text-transform: uppercase;
+	letter-spacing: -.02em;
+}
+
+/* Метки “На заметку” */
+.label {
+	display: block;
+	width: fit-content;
+	padding: 0.2em 0.5em;
+	margin: 0 auto 0.2em;
+	background: var(--rainbow);
+	animation: var(--rainbow-scroll);
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 60%;
+}
+
+/* Рукописные примечания */
+.note {
+	font-family: var(--font-handwritten);
+	color: var(--accent3-light);
+	font-weight: normal;
+}
+
+/* Подсказка */
+.hint {
+	position: absolute;
+	top: -5px;
+	left: 10px;
+	font-size: .8rem;
+	font-weight: bold;
+	line-height: 1;
+	color: rgba(0,0,0,.15);
+	mix-blend-mode: multiply;
+}
+
+/* Аватар */
+.avatar {
+	border-color: var(--color-aqua);
+	border-width: 0.2em;
+}
+
+/* Слайды */
+#intro {
+	background: linear-gradient(to left, rgba(0, 0, 0, 0.6) 20%, transparent 50%),
+		url(../img/16_10.png);
+}
+
+#intro .authors h1 {
+	font-weight: 300;
+	font-size: 140%;
+}
+
+#the-problem li {
+	font-size: 110%;
+}
+
+#todomvcQ caption {
+	color: var(--color-aqua);
+}
+
+#todomvcQ thead th {
+	background: var(--color-aqua);
+	color: white;
+}
+
+ul.blocks li:nth-child(2)::before {
+	color: var(--accent4-light);
+}
+
+ul.blocks li:nth-child(3)::before {
+	color: var(--color-magenta);
+}
+
+ul.blocks li:nth-child(4)::before {
+	color: var(--accent2-light);
+}
+
+ul.blocks li:nth-child(5)::before {
+	color: var(--color-yellow);
+}
+
+#mavo {
+	background: radial-gradient(transparent, rgba(0, 0, 0, 0.7))
+		hsl(200, 15%, 20%);
+}
+
+#mavo h1 {
+	background: none;
+}
+
+#mavo img {
+	height: 0;
+	filter: drop-shadow(0 0 0.2em rgba(0, 0, 0, 0.5));
+	transition: 1s height cubic-bezier(0.31, 0.23, 0.5, 1.5);
+}
+
+#mavo:target img {
+	height: 2.5em;
+}
