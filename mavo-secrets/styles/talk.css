@@ -158,6 +158,28 @@ section > header.slide:not(#intro) h1 .pretitle {
 	font-size: 140%;
 }
 
+#greetings video {
+	min-height: 70%;
+}
+
+#greetings h1 {
+	margin-top: 0.1em;
+	margin-bottom: 0;
+
+	font-size: 350%;
+	letter-spacing: -0.05em;
+
+	color: var(--color-aqua);
+}
+
+#greetings h2 {
+	margin-top: -0.5em;
+	font-weight: 100;
+	font-size: 82%;
+
+	color: white;
+}
+
 #the-problem li {
 	font-size: 110%;
 }
