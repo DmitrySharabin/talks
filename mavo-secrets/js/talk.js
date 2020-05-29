@@ -17,6 +17,12 @@
 // 	},
 // });
 
+// В слайдах с ссылками на внешние источники недопустимо использовать пробел внутри элемента —
+// слайд с сайтом перестаёт отображаться. Нужно это исправить
+$$(".slide[data-src]").forEach(slide => {
+	slide.textContent = "";
+});
+
 // Make list items fall from the top one by one
 for (let [i, li] of $$("#the-problem li:not(.special)").reverse().entries()) {
 	li.style.transitionDelay = i * .5 + "s";
