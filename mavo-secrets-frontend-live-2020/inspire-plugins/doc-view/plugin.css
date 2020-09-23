@@ -1,0 +1,39 @@
+.doc-view {
+	background: white;
+	--slide-margin: 1rem
+}
+.doc-view .slide {
+		width: calc(100vw - 2 * var(--slide-margin));
+		min-height: 50vh;
+		margin: 1rem;
+		font-size: 130%;
+		box-sizing: border-box;
+		position: relative;
+		opacity: 1;
+		visibility: visible;
+		overflow: hidden;
+	}
+.doc-view .image.slide,
+	.doc-view .demo.slide,
+	.doc-view .syntax-breakdown.slide {
+		height: calc(100vh - 2 * var(--slide-margin));
+	}
+.doc-view details.notes {
+		all: unset;
+		margin: 1rem
+	}
+.doc-view details.notes[open]::before {
+			content: none;
+		}
+.doc-view details.notes > summary,
+		.doc-view details.notes > div {
+			all: unset;
+		}
+.doc-view details.notes > summary {
+			font-weight: bold;
+			font-size: 150%;
+		}
+.doc-view [data-type].slide::after,
+	.doc-view .slide .ribbon {
+		position: absolute;
+	}

@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="shortcut icon" href="favicon.svg" type="image/svg+xml" />
+
+	<!-- Inspire -->
+	<link href="../inspire/inspire.css" rel="stylesheet" />
+	<link href="../inspire/theme.css" rel="stylesheet" />
+
+	<!-- Bliss -->
+	<script src="../bliss/bliss.js"></script>
+
+	<!-- Theme -->
+	<link href="../mavo-in-hands/theme.css" rel="stylesheet" />
+
+	<!-- Talk -->
+	<link rel="stylesheet" href="../mavo-in-hands/talk.css">
+	<link rel="stylesheet" href="styles/talk.css" />
+
+	<title>Секреты Mavo. Решение повседневных задач веб-разработчика без JavaScript</title>
+</head>
+
+<body class="language-markup" data-prism-root="../prism" data-prism-plugins="normalize-whitespace">
+	<section>
+		<header class="dont-resize looping slide" id="intro" data-video="../mavo-in-hands/videos/svgpath.mp4"
+			style="--url: 'https://mavo.io/demos/svgpath/'"
+			data-credits="В докладе использованы слайды Лии Веру (с разрешения автора)">
+			<div class="authors">
+				<h1>
+					Секреты Mavo. Решение повседневных задач веб-разработчика без JavaScript
+				</h1>
+				<article>
+					<strong>Дмитрий Шарабин</strong>
+					<a href="https://twitter.com/DmitrySharabin">@DmitrySharabin</a>
+					<span class="affiliation">MCT, MOS Master, Mavo Evangelist</span>
+				</article>
+			</div>
+		</header>
+
+		<article class="slide" id="the-problem" data-steps="2" data-credits="Mart Virkus @ toggl.com" data-title="Проблема">
+			<ul>
+				<li>Объекты</li>
+				<li>Классы</li>
+				<li>npm</li>
+				<li>NodeJS</li>
+				<li>Схемы данных</li>
+				<li>Ajax</li>
+				<li>События</li>
+				<li>Функции</li>
+				<li>OAuth</li>
+				<li>Базы данных</li>
+				<li>JSON</li>
+				<li>Виртуальный DOM</li>
+				<li>DOM</li>
+				<li>Веб-компоненты</li>
+				<li>MVC</li>
+				<li>Замыкания</li>
+				<li>JavaScript</li>
+				<li class="special html">HTML</li>
+				<li class="special css">CSS</li>
+			</ul>
+		</article>
+
+		<article class="slide" id="poll" data-title="Опрос">
+			<img src="../mavo-in-hands/img/nojspoll.png" class="tweet" alt="" />
+		</article>
+
+		<article class="slide" id="jslogos"
+			data-credits="hackernoon.com/how-it-feels-to-learn-javascript-in-2016-d3a717dd577f" data-title="Инструменты">
+		</article>
+
+		<article class="image slide" id="crying-baby" style="background-image: url(../mavo-in-hands/img/crying-baby.jpg)"
+			data-title="Бессилие"></article>
+
+		<article class="slide video" data-credits="«Аватар», 2009 год (реж. Джеймс Кэмерон)" data-title="Обучение взрослых">
+			<video src="../mavo-in-hands/videos/avatar.m4v"></video>
+		</article>
+
+		<article class="single-sentence slide" id="research-question" data-title="Вопрос">
+			<h1>
+				<span class="label">Вопрос</span>
+				Можем ли мы сделать<br />веб-программирование проще?<br />
+				<span class="delayed note">для начинающих</span>
+			</h1>
+		</article>
+
+		<article class="slide" id="html">
+			<img src="../mavo-in-hands/img/html.svg" alt="" />
+			<ul class="criteria delayed-children">
+				<li>Лояльность</li>
+				<li>Ошибкоустойчивость</li>
+				<li>Небольшой синтаксис</li>
+				<li>Портативность</li>
+			</ul>
+		</article>
+	</section>
+
+	<section>
+		<article id="mavo-site" class="slide" data-src="https://mavo.io/" data-title="mavo.io"></article>
+
+		<article id="uist-2016" class="slide uist"
+			style="background: url(../mavo-in-hands/img/uist2016.png) center / 100% auto hsl(0, 0%, 87%)">
+			<img src="../mavo-in-hands/img/paper-static.png" alt="" class="delayed" />
+		</article>
+
+		<article id="uist-2018" class="slide uist"
+			style="background: url(../mavo-in-hands/img/uist2018.png) center / 70% no-repeat, linear-gradient(to right, hsl(264, 83%, 16%), hsl(13, 60%, 50%));">
+			<img src="../mavo-in-hands/img/mavo-actions-paper.png" alt="" class="delayed" />
+		</article>
+
+		<article id="haystack-group" class="slide" data-src="http://haystack.csail.mit.edu/"
+			data-title="haystack.csail.mit.edu"></article>
+
+		<article class="slide" data-src="http://todomvc.com" data-title="todomvc.com"></article>
+
+		<article class="slide" id="todomvcQ">
+			<p class="hint">
+				Shift+→ У Svelte 68, но не весь функционал правильно работает (в
+				исполнении Рича Хариса)
+			</p>
+			<table>
+				<caption>
+					todomvc.com
+				</caption>
+				<thead>
+					<tr>
+						<th>Фреймворк</th>
+						<th>Строк JS-кода</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>React</td>
+						<td>421</td>
+					</tr>
+					<tr>
+						<td>Backbone</td>
+						<td>297</td>
+					</tr>
+					<tr>
+						<td>Angular</td>
+						<td>294</td>
+					</tr>
+					<tr>
+						<td>Polymer</td>
+						<td>246</td>
+					</tr>
+					<tr>
+						<td>Vue</td>
+						<td>125</td>
+					</tr>
+					<!-- <tr>
+				<td>Svelte</td>
+				<td>68</td>
+			</tr> -->
+					<tr class="delayed">
+						<td><b>Mavo</b></td>
+						<td>0 🎉</td>
+					</tr>
+				</tbody>
+			</table>
+			<img src="img/todomvc.png" />
+		</article>
+
+		<article class="slide" data-src="https://codepen.io/dmitrysharabin/pen/MWgQNYZ" data-title="📋 TodoMVC"></article>
+	</section>
+
+	<section>
+		<header class="slide">
+			<h1>
+				<span class="pretitle">Mavo awesomeness</span>
+				Mavo как CMS
+			</h1>
+		</header>
+
+		<article class="looping slide" data-video="../mavo-in-hands/videos/homepage.mp4"
+			style="--url: 'https://mavo.io/demos/homepage'" data-title="Редактируемая персональная страница">
+			<p class="hint">Редактирование данных</p>
+		</article>
+
+		<article class="looping slide" data-video="../mavo-in-hands/videos/portfolio.mp4"
+			style="--url: 'https://mavo.io/demos/portfolio'" data-title="Портфолио художника">
+			<p class="hint">Выгрузка данных в облако</p>
+		</article>
+
+		<article class="looping slide" data-video="../mavo-in-hands/videos/talks.mp4"
+			style="--url: 'http://lea.verou.me/speaking'" data-title="Список докладов на конференциях">
+			<p class="hint">Коллекции + виджеты редактирования</p>
+		</article>
+
+		<article class="looping slide" data-video="../mavo-in-hands/videos/invoice.mp4"
+			style="--url: 'https://mavo.io/demos/invoice'" data-title="Система учёта личных финансов">
+			<p class="hint">Потоки данных + вычисления</p>
+		</article>
+
+		<article id="plugins" class="slide" data-src="https://plugins.mavo.io/" data-title="plugins.mavo.io"></article>
+	</section>
+
+	<section>
+		<header class="slide">
+			<h1>
+				<span class="pretitle">Mavo awesomeness</span>
+				Переключатели
+			</h1>
+		</header>
+
+		<article class="slide" data-src="https://codepen.io/dmitrysharabin/pen/LYpaxQj"
+			data-title="🔐 Показать/скрыть пароль"></article>
+
+		<article class="slide" data-src="https://codepen.io/dmitrysharabin/pen/dyYNRQJ"
+			data-title="⏯ Выключить/включить анимацию"></article>
+
+		<article class="slide" data-src="https://codepen.io/dmitrysharabin/pen/ExVxOax" data-title="🌓 Тёмная/светлая тема">
+		</article>
+
+		<article class="slide" data-src="https://codepen.io/dmitrysharabin/pen/OJNvMJw" data-title="🎨 Цветовая схема">
+		</article>
+	</section>
+
+	<section>
+		<header class="slide">
+			<h1>
+				<span class="pretitle">Mavo awesomeness</span>
+				Виджеты
+			</h1>
+		</header>
+
+		<article class="slide" data-src="https://codepen.io/dmitrysharabin/pen/ZEbwNgg" data-title="🖼 Было–Стало">
+		</article>
+
+		<article class="slide" data-src="https://codepen.io/dmitrysharabin/pen/jjKwGG" data-title="🎞 Карусель изображений">
+		</article>
+
+		<article class="slide" data-src="https://codepen.io/dmitrysharabin/pen/NWGJaoM" data-title="📑 Пагинация"></article>
+
+		<article class="slide" data-src="https://codepen.io/dmitrysharabin/pen/eYpXqoy" data-title="🎹 Аккордеон"></article>
+
+		<article class="slide" data-src="https://codepen.io/dmitrysharabin/pen/qBBNjZP" data-title="🗂 Вкладки"></article>
+
+		<article class="slide" data-src="https://codepen.io/dmitrysharabin/pen/eYpXRrJ" data-title="🌤 Погода">
+		</article>
+	</section>
+
+	<section>
+		<header class="slide">
+			<h1>
+				<span class="pretitle">Mavo awesomeness</span>
+				Инструменты разработчика
+			</h1>
+		</header>
+
+		<article class="slide" data-src="https://mavo.io/demos/color-picker/" data-title="HSLA Colour Picker">
+		</article>
+
+		<article class="slide" data-src="https://mavo.io/demos/svgpath/" data-title="SVG &lt;path> Builder">
+		</article>
+
+		<article class="slide" data-src="https://codepen.io/dmitrysharabin/pen/PxbZXX" data-title="Flexbox Playground">
+		</article>
+
+		<article class="slide" data-src="https://codepen.io/leaverou/pen/ZxqXGy" data-title="Readability Playground">
+		</article>
+	</section>
+
+	<section>
+		<header class="slide">
+			<h1>
+				<span class="pretitle">Mavo awesomeness</span>
+				Интеграция с библиотеками
+			</h1>
+		</header>
+
+		<article class="slide" data-src="https://codepen.io/leaverou/pen/RjMBwy" data-title="A-Frame">
+		</article>
+
+		<article class="slide" data-src="https://codepen.io/dmitrysharabin/pen/jOPaYqP" data-title="Ionic Framework">
+		</article>
+	</section>
+
+	<section>
+		<header class="slide">
+			<h1>
+				<span class="pretitle">Mavo awesomeness</span>
+				Приложения
+			</h1>
+		</header>
+
+		<article class="slide" data-src="https://codepen.io/dmitrysharabin/pen/gOayobB" data-title="Интернет-магазин">
+		</article>
+
+		<article class="slide" data-src="https://flashcards.d12n.me/" data-title="Карточки">
+		</article>
+
+		<article class="slide" data-src="https://pm.d12n.me/" data-title="Канбан-доска">
+		</article>
+
+		<article class="slide" data-src="https://codepen.io/leaverou/pen/gqqQXO" data-title="GitHub Issue Closing Times">
+		</article>
+
+		<article class="slide" data-src="https://dpi.lv/" data-title="DPI Love">
+		</article>
+
+		<article class="slide"
+			data-src="https://projects.verou.me/mavoice/?repo=leaverou/css-almanac&labels=proposed%20stat"
+			data-title="MaVoice">
+		</article>
+
+		<article class="slide" data-src="https://christiandiscipleshiplibrary.com/books/humility.html"
+			data-title="Аудио-книги">
+		</article>
+	</section>
+
+	<section>
+		<article class="slide" id="mavo">
+			<h1>
+				<a href="https://mavo.io"><img src="img/logo.svg" alt="Mavo" /></a>
+			</h1>
+		</article>
+
+		<article class="dont-resize slide" id="crud-apps" data-title="CRUD">
+			<h1>CRUD <span style="font-weight: 300;">Простые вычисления</span></h1>
+			<ul style="--total: 21; font-weight: 300;">
+				<li>Портфолио</li>
+				<li>Список публикаций</li>
+				<li>Фотоальбом</li>
+				<li>Сайт конференции</li>
+				<li>Адресная книга</li>
+				<li>Блог</li>
+				<li>Резюме</li>
+				<li>Электронный секретарь (PIM)</li>
+				<!-- Personal Information Manager (PIM) -->
+				<li>Менструальный календарь</li>
+				<li>Система счетов-фактур</li>
+				<li>Калькуляторы и конвертеры</li>
+				<li>Меню ресторана</li>
+				<li>Дневник путешествий</li>
+				<li>Дневник тренировок</li>
+				<li>Коллекция рецептов</li>
+				<li>Список недвижимости</li>
+				<li>Персональная чековая книжка</li>
+				<li>Организация вечеринки</li>
+				<li>Инвентаризация бара</li>
+				<li>Уход за питомцем</li>
+				<li>Система бронирования</li>
+			</ul>
+		</article>
+
+		<article class="slide" id="building-blocks">
+			<h1>Строительные блоки Mavo</h1>
+
+			<ul class="blocks">
+				<li data-icon="✏">Редактирование</li>
+				<li data-icon="⛁">Сохранение</li>
+				<li data-icon="▦">Коллекции</li>
+				<li data-icon="☁">Выгрузка</li>
+				<li data-icon="⇄">Потоки данных</li>
+			</ul>
+		</article>
+
+		<article class="slide">
+			<h1>Испытайте Mavo в действии</h1>
+			<pre><code>
+				&lt;link rel="stylesheet" href="https://get.mavo.io/mavo.css"/>
+				&lt;script src="https://get.mavo.io/mavo.js">&lt;/script>
+			</code></pre>
+
+			<p class="delayed" style="font-size: 3.5vw;">
+				или перейдите на
+				<a style="font-weight: bold;" href="https://play.mavo.io">play.mavo.io</a>
+				и начните творить!
+			</p>
+		</article>
+
+		<article class="image slide" id="iceberg" data-title="Видение Mavo">
+			<p>&lt;-- Mavo сейчас</p>
+			<p>&lt;-- Mavo в будущем</p>
+		</article>
+
+		<article class="single-sentence slide" data-title="Mavo — будущее HTML в настоящем!">
+			<h1>
+				<span class="label">Вывод</span>
+				Mavo — будущее HTML<br />
+				<div class="note delayed">в настоящем!</div>
+			</h1>
+		</article>
+
+		<article class="slide single-sentence" id="get-involved">
+			<h1>
+				Стать участником
+			</h1>
+
+			<ul>
+				<li>
+					Ядро:
+					<a href="https://github.com/mavoweb/mavo">github.com/mavoweb/mavo</a>
+				</li>
+				<li>
+					Плагины:
+					<a href="https://github.com/mavoweb/mavo-plugins">github.com/mavoweb/mavo-plugins</a>
+				</li>
+				<li>
+					Документация:
+					<a href="https://github.com/mavoweb/mavo.io">github.com/mavoweb/mavo.io</a>
+				</li>
+				<li>
+					Gitter: <a href="https://gitter.im/mavoweb">gitter.im/mavoweb</a>
+				</li>
+				<li>
+					Telegram: <a href="https://t.me/mavoweb">t.me/mavoweb</a>
+				</li>
+			</ul>
+		</article>
+
+		<article class="slide" id="greetings" data-title="Приветствие Лии Веру">
+			<video src="videos/lea-greetings.mov"></video>
+			<h1>Lea Verou</h1>
+			<h2>Создатель и ведущий разработчик Mavo</h2>
+		</article>
+	</section>
+
+	<section>
+		<article class="single-sentence slide">
+			<h1>
+				<span class="label">Да пребудет с вами Mavo</span>
+				Спасибо за внимание!
+			</h1>
+		</article>
+	</section>
+
+	<footer class="slide">
+		<div class="sections">
+			<section>
+				<img src="img/logo.svg" />
+
+				<ul>
+					<li style="--icon: '🌍'">
+						<a href="https://mavo.io/">https://mavo.io/</a>
+					</li>
+					<li style="--icon: '🐱'">
+						<a href="https://github.com/mavoweb">github.com/mavoweb</a>
+					</li>
+					<li style="--icon: '🐦'">
+						<a href="https://twitter.com/mavoweb">@mavoweb</a>
+					</li>
+				</ul>
+			</section>
+			<section>
+				<img src="img/dmitry-sharabin.jpg" class="avatar" />
+
+				<ul>
+					<li style="--icon: '🌍'">
+						<a href="https://d12n.ru/">https://d12n.ru/</a>
+					</li>
+					<li style="--icon: '🐱'">
+						<a href="https://github.com/DmitrySharabin">github.com/DmitrySharabin</a>
+					</li>
+					<li style="--icon: '🐦'">
+						<a href="https://twitter.com/dmitrysharabin">@DmitrySharabin</a>
+					</li>
+				</ul>
+			</section>
+		</div>
+
+		<p>
+			Слайды:
+			<a href="https://dmitrysharabin.github.io/talks/mavo-secrets-frontend-live-2020">
+				dmitrysharabin.github.io/talks/mavo-secrets-frontend-live-2020
+			</a>
+		</p>
+		<p style="font-size: 50%;">
+			Слайды подготовлены исключительно с использованием современных
+			веб-технологий! Фреймворк:
+			<a href="https://inspirejs.org">inspirejs.org</a>
+		</p>
+	</footer>
+	<!-- <article class="slide takeaway">
+		<h1></h1>
+	</article> -->
+
+	<!-- Inspire -->
+	<script src="../inspire/inspire.js"></script>
+
+	<!-- Prism -->
+	<script src="js/prism.js"></script>
+
+	<!-- Talk -->
+	<script src="js/talk.js"></script>
+</body>
+
+</html>

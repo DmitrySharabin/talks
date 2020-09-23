@@ -1,0 +1,119 @@
+ul.tree {
+	font: bold 160%/1 var(--font-mono);
+	--dx: 5rem
+}
+ul.tree,
+	ul.tree ul {
+		margin: 0;
+		padding: 0;
+	}
+ul.tree > li {
+		margin: 0;
+	}
+ul.tree li {
+		position: relative;
+		display: flex;
+		align-items: center;
+		margin: .3em 0;
+		font-size: 75%
+	}
+ul.tree li li {
+			margin-left: var(--dx);
+		}
+ul.tree .node {
+		padding: .3em .5em .15em;
+		background: var(--color, var(--color-green));
+		border-radius: .2em;
+		text-shadow: 0 0 3px rgba(0,0,0,.4);
+		text-decoration: none;
+		white-space: nowrap
+	}
+ul.tree .node[href]:hover {
+			text-decoration: underline;
+			text-decoration-color: initial;
+		}
+ul.tree li li .node::before {
+			content: "";
+			position: absolute;
+			top: 50%;
+			right: 100%;
+			width: var(--dx);
+			height: .15em;
+			transform: translateY(-50%) skewY(calc(var(--angle, 0) * 1deg)) scaleY(calc(1 / var(--cos-angle, 1)));
+			transform-origin: right;
+			margin: 0;
+			border-radius: 0;
+			background-image: linear-gradient(var(--direction, to right), var(--parent-color), var(--color));
+		}
+ul.tree.vertical {
+		--dx: 3rem
+	}
+ul.tree.vertical li {
+			flex-flow: column;
+			font-size: 85%
+
+
+		}
+ul.tree.vertical li li {
+				margin-top: var(--dx);
+				margin-left: 0
+			}
+ul.tree.vertical li li .node::before {
+						top: auto;
+						bottom: 100%;
+						right: 50%;
+						height: var(--dx);
+						width: .15em;
+						--direction: to bottom;
+						transform: none;
+					}
+ul.tree > li li,
+	ul.tree li[data-level="2"] { /* 2+ level */
+		--color: var(--color-magenta);
+		--parent-color: var(--color-green);
+	}
+ul.tree > li li li,
+	ul.tree li[data-level="3"],
+	ul.tree li[data-level="2"] li { /* 3+ level */
+		--color: var(--color-aqua);
+		--parent-color: var(--color-magenta);
+	}
+ul.tree > li li li li,
+	ul.tree li[data-level="4"],
+	ul.tree li[data-level="3"] li,
+	ul.tree li[data-level="2"] li li { /* 4+ level */
+		--color: var(--color-orange);
+		--parent-color: var(--color-aqua);
+	}
+ul.tree > li li li li li,
+	ul.tree li[data-level="5"],
+	ul.tree li[data-level="3"] li li,
+	ul.tree li[data-level="2"] li li li { /* 5+ level */
+		--parent-color: var(--color-orange);
+		--color: var(--accent1);
+	}
+ul.tree > li li li li li li,
+	ul.tree li[data-level="6"],
+	ul.tree li[data-level="5"] li li li,
+	ul.tree li[data-level="4"] li li li li { /* 6+ level */
+		--parent-color: var(--accent1);
+		--color: var(--accent2);
+	}
+ul.tree li.highlight.highlight {
+		--color: white;
+		color: black
+	}
+ul.tree li.highlight.highlight .node {
+			text-shadow: none;
+		}
+ul.tree li.circle .node {
+		box-shadow: 0 0 0 0.3em white;
+	}
+ul.tree li.de-emphasize > .node {
+		border: 2px dashed var(--color);
+		background: none;
+		color: var(--color);
+	}
+ul.tree a::before {
+		content: none;
+	}

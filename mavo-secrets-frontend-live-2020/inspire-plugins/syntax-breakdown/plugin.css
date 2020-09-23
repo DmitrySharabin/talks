@@ -1,0 +1,158 @@
+.syntax-breakdown {
+	--color1: var(--color-aqua);
+	--color2: var(--color-yellow);s
+
+	&:not(.vertical) {
+		text-align: center;
+		justify-content: flex-start;
+	}
+}.syntax-breakdown pre {
+		overflow: visible;
+	}.syntax-breakdown code span[title], .syntax-breakdown .code span[title] {
+			--line-width: .5rem;
+			--offset: var(--length, var(--length-initial));
+
+			position: relative;
+			padding: .1em .1em 0;
+			opacity: 1;
+			border-radius: .5rem;
+			transition: none
+		}.syntax-breakdown code span[title].displayed, .syntax-breakdown .code span[title].displayed {
+				opacity: 1;
+			}.syntax-breakdown code span[title].current, .syntax-breakdown .code span[title].current {
+				background: var(--color1);
+				filter: drop-shadow(.1em .1em .4em black);
+				z-index: 1
+			}.syntax-breakdown code span[title].current,
+				.syntax-breakdown code span[title].current *,
+				.syntax-breakdown .code span[title].current,
+				.syntax-breakdown .code span[title].current * {
+					color: white !important;
+				}.syntax-breakdown code span[title].current::before,
+				.syntax-breakdown code span[title].current::after,
+				.syntax-breakdown .code span[title].current::before,
+				.syntax-breakdown .code span[title].current::after {
+					position: absolute;
+					background: var(--color2);
+					font: bold 3rem var(--font-heading);
+					letter-spacing: -.03em;
+				}.syntax-breakdown code span[title].current, .syntax-breakdown .code span[title].current {
+
+				/* Line */
+			}.syntax-breakdown code span[title].current::before, .syntax-breakdown .code span[title].current::before {
+					content: '';
+					z-index: -1;
+					background: linear-gradient(var(--gradient-direction, to bottom), var(--color1) 20%, var(--color2) 80%);
+				}.syntax-breakdown code span[title].current, .syntax-breakdown .code span[title].current {
+
+				/* Tooltip */
+			}.syntax-breakdown code span[title].current::after, .syntax-breakdown .code span[title].current::after {
+					content: attr(title);
+					z-index: 1;
+					width: var(--tooltip-width, max-content);
+					max-width: var(--tooltip-max-width, var(--max-width-initial));
+					box-sizing: border-box;
+					padding: .3em .5em .4em;
+					border-radius: inherit;
+					color: black;
+					white-space: normal;
+				}.syntax-breakdown code span[title], .syntax-breakdown .code span[title] {
+
+			/* Vertical */
+		}.syntax-breakdown code span[title][data-tooltip^="top"],
+			.syntax-breakdown code span[title][data-tooltip^="bottom"],
+			.syntax-breakdown .code span[title][data-tooltip^="top"],
+			.syntax-breakdown .code span[title][data-tooltip^="bottom"] {
+				--length-initial: calc(80vh - 6em)
+			}.syntax-breakdown code span[title][data-tooltip^="top"]::before,
+				.syntax-breakdown code span[title][data-tooltip^="top"]::after,
+				.syntax-breakdown code span[title][data-tooltip^="bottom"]::before,
+				.syntax-breakdown code span[title][data-tooltip^="bottom"]::after,
+				.syntax-breakdown .code span[title][data-tooltip^="top"]::before,
+				.syntax-breakdown .code span[title][data-tooltip^="top"]::after,
+				.syntax-breakdown .code span[title][data-tooltip^="bottom"]::before,
+				.syntax-breakdown .code span[title][data-tooltip^="bottom"]::after {
+					left: 50%;
+				}.syntax-breakdown code span[title][data-tooltip^="top"]::before, .syntax-breakdown code span[title][data-tooltip^="bottom"]::before, .syntax-breakdown .code span[title][data-tooltip^="top"]::before, .syntax-breakdown .code span[title][data-tooltip^="bottom"]::before {
+					width: var(--line-width);
+					height: var(--length, var(--length-initial));
+					transform: translateX(-50%);
+				}.syntax-breakdown code span[title][data-tooltip^="top"]::after, .syntax-breakdown code span[title][data-tooltip^="bottom"]::after, .syntax-breakdown .code span[title][data-tooltip^="top"]::after, .syntax-breakdown .code span[title][data-tooltip^="bottom"]::after {
+					/* max-width: min(var(--left) / 2, var(--right) / 2); */
+					transform: translateX(calc(-50% - var(--h-offset, 0%)));
+				}@supports (width: min(1em, 1px)) {
+					.syntax-breakdown code span[title][data-tooltip^="top"]::after, .syntax-breakdown code span[title][data-tooltip^="bottom"]::after, .syntax-breakdown .code span[title][data-tooltip^="top"]::after, .syntax-breakdown .code span[title][data-tooltip^="bottom"]::after {
+						transform: translateX(calc(-1 * min(var(--left, 0) + var(--width, 0) / 2, 50%) - var(--h-offset, 0%)));
+					}
+				}.syntax-breakdown code span[title][data-tooltip^="top"][data-tooltip$=" right"]::before,
+					.syntax-breakdown code span[title][data-tooltip^="top"][data-tooltip$=" right"]::after,
+					.syntax-breakdown code span[title][data-tooltip^="bottom"][data-tooltip$=" right"]::before,
+					.syntax-breakdown code span[title][data-tooltip^="bottom"][data-tooltip$=" right"]::after,
+					.syntax-breakdown .code span[title][data-tooltip^="top"][data-tooltip$=" right"]::before,
+					.syntax-breakdown .code span[title][data-tooltip^="top"][data-tooltip$=" right"]::after,
+					.syntax-breakdown .code span[title][data-tooltip^="bottom"][data-tooltip$=" right"]::before,
+					.syntax-breakdown .code span[title][data-tooltip^="bottom"][data-tooltip$=" right"]::after {
+						left: auto;
+					}.syntax-breakdown code span[title][data-tooltip^="top"][data-tooltip$=" right"]::before, .syntax-breakdown code span[title][data-tooltip^="bottom"][data-tooltip$=" right"]::before, .syntax-breakdown .code span[title][data-tooltip^="top"][data-tooltip$=" right"]::before, .syntax-breakdown .code span[title][data-tooltip^="bottom"][data-tooltip$=" right"]::before {
+						right: 50%;
+						transform: translateX(50%);
+					}.syntax-breakdown code span[title][data-tooltip^="top"][data-tooltip$=" right"]::after, .syntax-breakdown code span[title][data-tooltip^="bottom"][data-tooltip$=" right"]::after, .syntax-breakdown .code span[title][data-tooltip^="top"][data-tooltip$=" right"]::after, .syntax-breakdown .code span[title][data-tooltip^="bottom"][data-tooltip$=" right"]::after {
+						right: 0;
+						left: auto;
+						transform: none;
+					}.syntax-breakdown code span[title], .syntax-breakdown .code span[title] {
+
+			/* Horizontal */
+		}.syntax-breakdown code span[title][data-tooltip^="left"],
+			.syntax-breakdown code span[title][data-tooltip^="right"],
+			.syntax-breakdown .code span[title][data-tooltip^="left"],
+			.syntax-breakdown .code span[title][data-tooltip^="right"] {
+				--length-initial: 6em;
+				display: inline-block;
+				width: fit-content;
+				padding: .1em 0 0;
+				white-space: normal
+			}.syntax-breakdown code span[title][data-tooltip^="left"].current, .syntax-breakdown code span[title][data-tooltip^="right"].current, .syntax-breakdown .code span[title][data-tooltip^="left"].current, .syntax-breakdown .code span[title][data-tooltip^="right"].current {
+					box-shadow: .2em 0 var(--color1), -.2em 0 var(--color1)
+				}.syntax-breakdown code span[title][data-tooltip^="left"].current::before,
+					.syntax-breakdown code span[title][data-tooltip^="left"].current::after,
+					.syntax-breakdown code span[title][data-tooltip^="right"].current::before,
+					.syntax-breakdown code span[title][data-tooltip^="right"].current::after,
+					.syntax-breakdown .code span[title][data-tooltip^="left"].current::before,
+					.syntax-breakdown .code span[title][data-tooltip^="left"].current::after,
+					.syntax-breakdown .code span[title][data-tooltip^="right"].current::before,
+					.syntax-breakdown .code span[title][data-tooltip^="right"].current::after {
+						top: 50%;
+						transform: translateY(-50%);
+					}.syntax-breakdown code span[title][data-tooltip^="left"].current::before, .syntax-breakdown code span[title][data-tooltip^="right"].current::before, .syntax-breakdown .code span[title][data-tooltip^="left"].current::before, .syntax-breakdown .code span[title][data-tooltip^="right"].current::before {
+						height: var(--line-width);
+						top: 50%;
+						width: var(--offset);
+					}.syntax-breakdown code span[title][data-tooltip^="left"].after-middle::after, .syntax-breakdown code span[title][data-tooltip^="right"].after-middle::after, .syntax-breakdown .code span[title][data-tooltip^="left"].after-middle::after, .syntax-breakdown .code span[title][data-tooltip^="right"].after-middle::after {
+					--max-width-initial: 43vw;
+				}.syntax-breakdown code span[title][data-tooltip^="top"], .syntax-breakdown .code span[title][data-tooltip^="top"] {
+				--gradient-direction: to top
+			}.syntax-breakdown code span[title][data-tooltip^="top"]::before, .syntax-breakdown .code span[title][data-tooltip^="top"]::before {
+					bottom: 100%;
+				}.syntax-breakdown code span[title][data-tooltip^="top"]::after, .syntax-breakdown .code span[title][data-tooltip^="top"]::after {
+					bottom: calc(100% + var(--offset));
+				}.syntax-breakdown code span[title][data-tooltip^="bottom"], .syntax-breakdown .code span[title][data-tooltip^="bottom"] {
+				--gradient-direction: to bottom
+			}.syntax-breakdown code span[title][data-tooltip^="bottom"]::before, .syntax-breakdown .code span[title][data-tooltip^="bottom"]::before {
+					top: 100%;
+				}.syntax-breakdown code span[title][data-tooltip^="bottom"]::after, .syntax-breakdown .code span[title][data-tooltip^="bottom"]::after {
+					top: calc(100% + var(--offset));
+				}.syntax-breakdown code span[title][data-tooltip^="right"], .syntax-breakdown .code span[title][data-tooltip^="right"] {
+				--gradient-direction: to right
+			}.syntax-breakdown code span[title][data-tooltip^="right"]::before, .syntax-breakdown .code span[title][data-tooltip^="right"]::before {
+					left: 100%;
+				}.syntax-breakdown code span[title][data-tooltip^="right"]::after, .syntax-breakdown .code span[title][data-tooltip^="right"]::after {
+					left: calc(100% + var(--offset));
+					--max-width-initial: calc(98vw - var(--offset) - var(--left, 0) - var(--width, 0));
+				}.syntax-breakdown code span[title][data-tooltip^="left"], .syntax-breakdown .code span[title][data-tooltip^="left"] {
+				--gradient-direction: to left
+			}.syntax-breakdown code span[title][data-tooltip^="left"]::before, .syntax-breakdown .code span[title][data-tooltip^="left"]::before {
+					right: 100%;
+				}.syntax-breakdown code span[title][data-tooltip^="left"]::after, .syntax-breakdown .code span[title][data-tooltip^="left"]::after {
+					right: calc(100% + var(--offset));
+				}
