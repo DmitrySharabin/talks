@@ -69,6 +69,17 @@ $.events(document, "slidechange", evt => {
 			video.play();
 		});
 	}
+
+	if (slide.matches(".demo.mavo")) {
+		$$("textarea", slide).forEach(textarea => {
+			textarea.spellcheck = false;
+			textarea.addEventListener("keyup", evt => {
+				if (evt.key == "Enter" && evt.ctrlKey) {
+					Mavo.init();
+				}
+			});
+		});
+	}
 });
 
 $$(".quiz.slide").forEach((slide) => {

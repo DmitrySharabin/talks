@@ -171,6 +171,137 @@
 	<section>
 		<header class="slide">
 			<h1>
+				<span class="pretitle">Учебник Mavo</span>
+				Виджет “Было–Стало”
+			</h1>
+		</header>
+	
+		<article class="slide">
+			<h1>Подключите Mavo к приложению</h1>
+			<pre>
+					<code>
+						&lt;link rel="stylesheet" href="https://get.mavo.io/mavo.css"/>
+						&lt;script src="https://get.mavo.io/mavo.js">&lt;/script>
+					</code>
+				</pre>
+	
+			<p class="delayed" style="font-size: 3.5vw;">
+				или перейдите на
+				<a style="font-weight: bold;" href="https://play.mavo.io">play.mavo.io</a>
+				и начните творить!
+			</p>
+		</article>
+	
+		<article class="demo slide horizontal mavo" id="before-after"
+			data-credits="https://pixbim.com/colorsurprise-ai-pixbim">
+			<p class="hint">main[mv-app], input[property="slider"], main[style="--slider-thumb-position: [slider]%"],
+				CTRL+ENTER, img[property], lady ➔ poster, --image-width: 505</p>
+			<textarea class="language-html">
+					<main class="🖼">
+						<img alt="После" src="img/lady_color.jpg" />
+						<img alt="До" src="img/lady_bw.jpg" />
+						<input type="range" min="0" max="100" value="50" />
+					</main>
+				</textarea>
+	
+			<textarea class="language-css">
+					.🖼 {
+						--slider-thumb-position: 50%;
+					}
+				</textarea>
+			<style class="demo" data-slide>
+				.demo {
+					--widget-width: 15em;
+				}
+	
+				.🖼 * {
+					box-sizing: border-box;
+				}
+	
+				.🖼 {
+					position: relative;
+					width: var(--widget-width);
+					height: calc(var(--widget-width) * 600 / var(--image-width, 469));
+					margin: auto;
+				}
+	
+				.🖼::before {
+					content: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><circle cx="12" cy="12" r="12" fill="white" /><path fill="black" d="M11,4h2v16h-2v-16zm-4,5l-3,3l3,3v-2h3v-2h-3zm13,3l-3,-3v2h-3v2h3v2z"/></svg>');
+					position: absolute;
+					left: calc(var(--slider-thumb-position) - 13px);
+					top: 50%;
+					z-index: 10;
+					pointer-events: none;
+					filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.5));
+				}
+	
+				.🖼 img {
+					display: block;
+					position: absolute;
+					left: 0;
+					top: 0;
+					bottom: 0;
+					height: 100%;
+					object-fit: cover;
+					object-position: 0 50%;
+					user-select: none;
+					box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+				}
+	
+				.🖼 img:last-of-type {
+					width: var(--slider-thumb-position);
+					border-right: 3px solid rgba(255, 255, 255, 0.8);
+				}
+	
+				.🖼 img:first-of-type {
+					width: 100%;
+				}
+	
+				.🖼 input[type=range] {
+					position: absolute;
+					margin: 0;
+					width: 100%;
+					height: 100%;
+					left: 0;
+					top: 0;
+					cursor: ew-resize;
+					-webkit-appearance: none;
+					background: transparent;
+				}
+	
+				.🖼 input[type=range]::-webkit-slider-thumb {
+					-webkit-appearance: none;
+					width: 0;
+					height: 0;
+				}
+	
+				.🖼 input[type=range]::-moz-range-thumb {
+					width: 0;
+					height: 0;
+				}
+	
+				.🖼 input[type=range]:focus {
+					outline: none;
+				}
+	
+				[mv-app][mv-mode="edit"] [property="before"] {
+					width: 50%;
+				}
+	
+				[mv-app][mv-mode="edit"] [property="slider"] {
+					display: none;
+				}
+	
+				[mv-app][mv-mode="edit"]::before {
+					left: calc(50% - 13px);
+				}
+			</style>
+		</article>
+	</section>
+
+	<section>
+		<header class="slide">
+			<h1>
 				<span class="pretitle">Mavo awesomeness</span>
 				Mavo как CMS
 			</h1>
@@ -227,9 +358,6 @@
 				Виджеты
 			</h1>
 		</header>
-
-		<article class="slide" data-src="https://codepen.io/dmitrysharabin/pen/ZEbwNgg" data-title="🖼 Было–Стало">
-		</article>
 
 		<article class="slide" data-src="https://codepen.io/dmitrysharabin/pen/jjKwGG" data-title="🎞 Карусель изображений">
 		</article>
@@ -358,20 +486,6 @@
 				<li data-icon="☁">Выгрузка</li>
 				<li data-icon="⇄">Потоки данных</li>
 			</ul>
-		</article>
-
-		<article class="slide">
-			<h1>Испытайте Mavo в действии</h1>
-			<pre><code>
-				&lt;link rel="stylesheet" href="https://get.mavo.io/mavo.css"/>
-				&lt;script src="https://get.mavo.io/mavo.js">&lt;/script>
-			</code></pre>
-
-			<p class="delayed" style="font-size: 3.5vw;">
-				или перейдите на
-				<a style="font-weight: bold;" href="https://play.mavo.io">play.mavo.io</a>
-				и начните творить!
-			</p>
 		</article>
 
 		<article class="image slide" id="iceberg" data-title="Видение Mavo">
