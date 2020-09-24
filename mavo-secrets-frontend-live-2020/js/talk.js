@@ -58,7 +58,7 @@ $.events(document, "slidechange", evt => {
 
 	if (slide) {
 		$$("video", slide).forEach(video => {
-			video.loop = true;
+			video.loop = slide.classList.contains("looping");
 			video.currentTime = 0;
 			video.play();
 		});
