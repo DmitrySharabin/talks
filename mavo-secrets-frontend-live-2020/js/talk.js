@@ -23,6 +23,12 @@ $$(".slide[data-src]").forEach(slide => {
 	slide.textContent = "";
 });
 
+// Загружаем плагин Mavo
+(async _ => {
+	await Inspire.loadPlugin("mavo");
+	await Inspire.pluginsLoaded.mavo.ready;
+})();
+
 // Make list items fall from the top one by one
 for (let [i, li] of $$("#the-problem li:not(.special)").reverse().entries()) {
 	li.style.transitionDelay = i * .5 + "s";
